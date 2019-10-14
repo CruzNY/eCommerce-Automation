@@ -1,9 +1,13 @@
 package runners;
 
+import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
 
 @CucumberOptions(
-		features = {"/home/alex/git/phpTravales-Automation-Framework/AutomationFrameowrk/features"},
+		features = {"/home/alex/git/repository/automationECommerce/features/standardFeatures/UserRegistration.feature"},
 		glue = {"steps"},
 		monochrome = true,
 		tags = {},
