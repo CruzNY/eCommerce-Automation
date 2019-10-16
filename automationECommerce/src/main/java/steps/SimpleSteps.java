@@ -47,25 +47,29 @@ public class SimpleSteps {
 
 	@When("^User clicks on the \"([^\"]*)\" button$")
 	public void user_clicks_on_the_button(String arg1) throws Throwable {
-
+		Thread.sleep(2000);
+		if(arg1.equals("Sign In"))
+			driver.findElement(By.xpath("//div[@class='header_user_info']/a")).click();
+		else if(arg1.equals("Create an account"))
+			driver.findElement(By.xpath("//button[@id='SubmitCreate']")).click();
 	}
 
 	@When("^User verifies the \"([^\"]*)\" page is displayed$")
 	public void user_verifies_the_page_is_displayed(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-//		driver.findElement(By.xpath("//h1"));
+		driver.findElement(By.xpath("//h1"));
+		Assert.assertEquals(arg1,driver.findElement(By.xpath("//h1")).getText());
 	}
 
 	@When("^User enters \"([^\"]*)\" into textbox$")
 	public void user_enters_into_textbox(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		String email = "McTester@mailinator.com";
+		driver.findElement(By.xpath("//input[@id='email_create']")).sendKeys(email);
 	}
 
 	@Then("^User selects the \"([^\"]*)\" against the \"([^\"]*)\" checkbox$")
 	public void user_selects_the_against_the_checkbox(String arg1, String arg2) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		
 	}
 
 	@Then("^User enters \"([^\"]*)\" into the \"([^\"]*)\" textbox$")
