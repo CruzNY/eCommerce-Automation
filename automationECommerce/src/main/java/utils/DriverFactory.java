@@ -5,9 +5,17 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.PageFactory;
+
+import pages.HomePage;
+import pages.LoginAndSignUp;
 
 public class DriverFactory {
 	public static WebDriver driver;
+	public static HomePage homepage;
+	public static LoginAndSignUp loginAndSignUp;
+	
+	
 	public WebDriver getDriver() {
 	try {
 		ReadConfigFile file = new ReadConfigFile();
@@ -37,7 +45,9 @@ public class DriverFactory {
 	}catch(Exception e) {
 		System.out.println("Unable to load browser"+ e.getMessage());
 	}finally {
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);		
+		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);	
+		homepage = PageFactory.initElements(driver, HomePage.class);
+		loginAndSignUp = PageFactory.initElements(driver, LoginAndSignUp.class);
 	}
 	return driver;
 	}
