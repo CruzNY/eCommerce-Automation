@@ -17,7 +17,7 @@ public class ContactUs extends BasePage{
 	public @FindBy(xpath = "//textarea[@id='message']") WebElement message_text_area;
 	
 	public ContactUs getContactUsPage() throws IOException {
-		getDriver().get("http://automationpractice.com/index.php?controller=contact");
+		getDriver().get("http://automationpractice.com/index.php");
 		return new ContactUs();
 	}
 	public ContactUs enterEmail(String email) throws Exception{

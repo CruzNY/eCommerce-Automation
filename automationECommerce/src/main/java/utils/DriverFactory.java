@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 
+import pages.ContactUs;
 import pages.HomePage;
 import pages.LoginAndSignUp;
 
@@ -14,7 +15,7 @@ public class DriverFactory {
 	public static WebDriver driver;
 	public static HomePage homepage;
 	public static LoginAndSignUp loginAndSignUp;
-	
+	public static ContactUs contactUs;
 	
 	public WebDriver getDriver() {
 	try {
